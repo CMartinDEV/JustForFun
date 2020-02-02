@@ -1,0 +1,73 @@
+function Sponge-Bob
+{
+    <#
+        .SYNOPSIS
+         MaKe tExT LoOk lIkE ThIs
+
+        .DESCRIPTION
+         Overengineered function that applies the SpongeBob format to text.
+         Useful for mocking people on the internet.
+
+        .PARAMETER InputObject
+         The string(s) to apply the SpongeBob format to.
+
+        .EXAMPLE
+        "What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little ""clever"" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo." | Sponge-Bob
+        WhAt ThE fUcK dId YoU jUsT fUcKiNg SaY aBoUt Me, yOu LiTtLe BiTcH? I'Ll HaVe YoU kNoW i GrAdUaTeD tOp Of My ClAsS iN tHe NaVy SeAlS, AnD i'vE bEeN iNvOlVeD iN nUmErOuS sEcReT rAiDs On Al-qUaEdA, AnD i HaVe OvEr 300 cOnFiRmEd KiLlS. I aM tRaInEd In GoRiLlA wArFaRe AnD i'm ThE tOp SnIpEr In ThE eNtIrE uS aRmEd FoRcEs. yOu ArE nOtHiNg To Me BuT jUsT aNoThEr TaRgEt. i WiLl WiPe YoU tHe FuCk OuT wItH pReCiSiOn ThE lIkEs Of WhIcH hAs NeVeR bEeN sEeN bEfOrE oN tHiS eArTh, mArK mY fUcKiNg WoRdS. YoU tHiNk YoU cAn GeT aWaY wItH sAyInG tHaT sHiT tO mE oVeR tHe InTeRnEt? tHiNk AgAiN, FuCkEr. aS wE sPeAk I aM cOnTaCtInG mY sEcReT nEtWoRk Of SpIeS aCrOsS tHe UsA aNd YoUr Ip Is BeInG tRaCeD rIgHt NoW sO yOu BeTtEr PrEpArE fOr ThE sToRm, mAgGoT. ThE sToRm ThAt WiPeS oUt ThE pAtHeTiC lItTlE tHiNg YoU cAlL yOuR lIfE. YoU'Re FuCkInG dEaD, KiD. I cAn Be AnYwHeRe, aNyTiMe, aNd I cAn KiLl YoU iN oVeR sEvEn HuNdReD wAyS, AnD tHaT'S jUsT wItH mY bArE hAnDs. nOt OnLy Am I eXtEnSiVeLy TrAiNeD iN uNaRmEd CoMbAt, bUt I hAvE aCcEsS tO tHe EnTiRe ArSeNaL oF tHe UnItEd StAtEs MaRiNe CoRpS aNd I wIlL uSe It To ItS fUlL eXtEnT tO wIpE yOuR mIsErAbLe AsS oFf ThE fAcE oF tHe CoNtInEnT, YoU lItTlE sHiT. If OnLy YoU cOuLd HaVe KnOwN wHaT uNhOlY rEtRiBuTiOn YoUr LiTtLe "cLeVeR" CoMmEnT wAs AbOuT tO bRiNg DoWn UpOn YoU, MaYbE yOu WoUlD hAvE hElD yOuR fUcKiNg ToNgUe. bUt YoU cOuLdN'T, YoU dIdN'T, AnD nOw YoU'Re PaYiNg ThE pRiCe, yOu GoDdAmN iDiOt. i WiLl ShIt FuRy AlL oVeR yOu AnD yOu WiLl DrOwN iN iT. YoU'Re FuCkInG dEaD, KiDdO.
+
+        .EXAMPLE
+        Sponge-Bob -InputObject @('Test 1','','Test 2')
+        TeSt 1
+        TeSt 2
+    
+    #>
+
+    [CmdletBinding()]
+    Param(
+        [Parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromPipeline = $true)]
+        [AllowEmptyString()]
+        [string[]] $InputObject
+        )
+    Begin
+    {
+        $Script:Sb = [System.Text.StringBuilder]::new()
+    }
+    Process
+    {
+        $InputObject.ForEach({
+
+            if ([string]::IsNullOrWhiteSpace($_)) { Write-Verbose -Message 'CaN''T SpOnGeBoB NoThInG. sKiPpInG ThIs oNe.'; return }
+
+            $nextCharacterUpper = $true
+
+            $_.ToCharArray().ForEach({
+
+                if ([string]::IsNullOrWhiteSpace($_)) 
+                { 
+                    $null = $Script:Sb.Append($_) 
+                }
+                else
+                {
+                    if ($nextCharacterUpper)
+                    {
+                        $null = $Script:Sb.Append($_.ToString().ToUpper())
+                        $nextCharacterUpper = $false
+                    }
+                    else
+                    {
+                        $null = $Script:Sb.Append($_.ToString().ToLower())
+                        $nextCharacterUpper = $true     
+                    }
+                }
+                
+                })
+
+            Write-Output -InputObject $sb.ToString()
+
+            $null = $Script:Sb.Clear()
+        })
+    }
+}
