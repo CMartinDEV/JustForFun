@@ -3,9 +3,11 @@ function ConvertTo-SpongeBob
     <#
         .SYNOPSIS
          MaKe tExT LoOk lIkE ThIs
+         
         .DESCRIPTION
          Overengineered function that applies the SpongeBob format to text.
          Useful for mocking people on the internet.
+         
         .PARAMETER InputObject
          The string(s) to apply the SpongeBob format to.
          
